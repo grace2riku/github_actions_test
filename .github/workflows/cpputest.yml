@@ -1,0 +1,23 @@
+name: C/C++ Regression Test with CppUTest
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install CppUTest
+      run: sudo apt-get install cpputest
+
+    - name: Build your code
+      run: make
+
+    - name: Run tests
+      run: make test
